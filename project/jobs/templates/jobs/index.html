@@ -1,0 +1,74 @@
+{% extends "jobs/base.html" %}
+
+{% load markup %}
+
+{% block zone_one %}
+
+<div class="namedbox first-box" id="jobs-open">
+    <h1 class="boxtop bt-blue">Positions Available</h1>
+    {% if perms.jobs.change_joblisting %}<a href="{% url admin:jobs_joblisting_changelist %}" title="Edit This" class="admin-edit-link" style="color:white; text-decoration:none" target="_blank">✎</a>{% endif %}
+    {% for job in jobs %}
+    <div class="job-listing" style="padding-bottom: 1em;">
+        <h3><a href="{{ job.link }}" target="_blank">{{ job.title }}</a></h3>
+        <p>
+        {{ job.description|markdown }}
+        </p>
+        <ul class="job-date">
+            <li>Opens: {{ job.start }}</li>
+            <li>Ends: {{ job.end|default:"Open Until Filled" }}</li>
+            <li>Review Begins: {{ job.review|default:"TBD" }}</li>
+        </ul>
+    </div>
+{% empty %}
+Unfortunately, there are no positions available right now.  Check back soon
+for exciting employment opportunities.
+{% endfor %}
+</div>
+{% endblock %}
+
+{% block zone_two %}
+<div class="namedbox first-box" id="about-azpm">
+    <h1 class="boxtop bt-blue">About Working at Arizona Public Media</h1>
+    <p>
+        Arizona Public Media is committed to providing excellence in
+        Public Broadcasting to the diverse communities of southern
+        Arizona. Our employees are the single most important resource,
+        making all we achieve possible.
+    </p>
+    <p>
+        Arizona Public Media values creativity, diversity and sincerity
+        in public service. Arizona Public Media is an AA/ADA/EEO
+        employer. We encourage all those qualified to apply.
+    </p>
+    <p>
+        In accordance with FCC guidelines (adopted Nov. 7, 2002),
+        Arizona Public Media is required to provide notification of
+        full-time job vacancies to organizations involved in assisting
+        job seekers upon request by such organization.
+    </p>
+    <p>
+        As a public service, Arizona Public Media Human Resources office
+        will provide notification of jobs to interested organizations.
+        To request notification, write:
+    </p>
+    <p>
+        Arizona Public Media<br/>
+        PO Box 210067<br/>
+        Tucson, AZ 85721-0067
+    </p>
+    <p>
+        <strong>Equal Opportunity and Affirmative Action Links:</strong>
+        <br/>
+        <a href="http://equity.arizona.edu/">
+            The University of Arizona's Equal Opportunity and Affirmative Action Office Web site
+        </a>
+        <br/>
+        <a href="http://www.eeoc.gov/">
+            U.S. Equal Employment Opportunity Commission (EEOC)
+        </a>
+        <a href="http://about.azpm.org/publicfile/">
+            AZPM Public File
+        </a>
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "intensifier/base.html" %}
+
+{% block open-graph %}
+<meta property="og:title" content="TV Schedules - Arizona Public Media" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:description" content="{{ cms_page.title }}" />
+<meta property="og:image" content="{{ cms_page.theme.banner.url }}" />
+{% endblock %}
+
+{% block content %}
+<!-- create a slice -->
+<div class="slice clearfix content-bg">
+    <div class="grid_2">
+    {% block zone_one %}{% endblock %}
+    </div>
+    <div class="grid_1">
+    {% block zone_two %}
+        <div class="namedbox">
+            <h1 class="boxtop bt-blue">General Information</h1>
+            Audience Services: Mon–Fri 8 am – 6 pm<br/>
+            520-621-KUAT (5828)<br/>
+            <br/>
+            Member Services: Mon–Fri 8 am – 6 pm<br/>
+            520-621-7640<br/>
+            <br/>
+            Underwriting: Mon-Fri 8 am - 5 pm<br/>
+            520-621-5836<br/>
+            <br/>
+            Leadership Society: Mon–Fri 8 am – 5 pm<br/>
+            520-621-3277<br/>
+            <br/>
+            General Manager: Mon–Fri 8 am – 5 pm<br/>
+            520-621-5805 <br/>
+            <br/>
+            Mailing address:<br/>
+            PO Box 210067 <br/>
+            Tucson, AZ 85721 <br/>
+            </br><br/>
+            Physical Address:<br/>
+            Modern Languages Building (South)<br/>
+            The University of Arizona Campus<br/>
+            <br/>
+        </div>
+    {% endblock %}
+    </div>
+</div>
+<!-- end slice -->
+{% endblock %}

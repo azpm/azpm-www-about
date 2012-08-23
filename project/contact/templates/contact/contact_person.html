@@ -1,0 +1,29 @@
+{% extends "contact/base.html" %}
+
+{% load i18n %}
+
+{% block zone_one %}
+<div class="namedbox first-box">
+    <h1 class="boxtop bt-blue">Contact {{ contact_user.get_full_name }}</h1>
+    <form action="." method="post">{% csrf_token %}
+        {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
+        {% for field in form %}
+            {% ifequal field.name "honeypot" %}
+                <div style="display: none;">{{ field }}</div>
+            {% else %}
+                {% if field.is_hidden %}{{ field }}{% else %}
+                    <div class="form-row {% if field.errors %}field-errors{% endif %}">
+                        <div class="form-label">{% if field.field.required %}<strong>{% endif %}{{  field.label_tag }}{% if field.field.required %}</strong>{% endif %}</div>
+                        <div class="form-field">{{ field }}</div>
+                        {% if field.help_text %}<div class="form-help">{{ field.help_text }}</div>{% endif %}
+                        {% if field.errors %}<div class="form-error label label-important">{{ field.errors }}</div>{% endif %}
+                    </div>
+                {% endif %}
+            {% endifequal %}
+        {% endfor %}
+        <div class="form-action-row">
+            <input type="submit" name="submit" class="submit-post" value="{% trans "Send" %}" />
+        </div>
+    </form>
+</div>
+{% endblock %}
