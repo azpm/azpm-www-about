@@ -119,7 +119,7 @@ class ContactPerson(ContactPage, FormView):
             to = [self.contact_user.email],
             headers = {'Reply-To': "%s <%s>" % (cleaned['name'], cleaned['email'])},
         )
-        #email.send()
+        email.send()
         messages.success(self.request, "Thanks for your feedback. We will process your comments and make sure they are heard!")
         return HttpResponseRedirect(reverse("contact:thanks"))
 
