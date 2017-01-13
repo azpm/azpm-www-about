@@ -3,27 +3,77 @@
 {% load i18n %}
 
 {% block zone_one %}
-<div class="namedbox first-box">
-    <h1 class="boxtop bt-blue">Give Us Your Feedback</h1>
-    <form action="." method="post">{% csrf_token %}
-        {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
-        {% for field in form %}
-            {% ifequal field.name "honeypot" %}
-                <div style="display: none;">{{ field }}</div>
-            {% else %}
-                {% if field.is_hidden %}{{ field }}{% else %}
-                    <div class="form-row {% if field.errors %}field-errors{% endif %}">
-                        <div class="form-label">{% if field.field.required %}<strong>{% endif %}{{  field.label_tag }}{% if field.field.required %}</strong>{% endif %}</div>
-                        <div class="form-field">{{ field }}</div>
-                        {% if field.help_text %}<div class="form-help">{{ field.help_text }}</div>{% endif %}
-                        {% if field.errors %}<div class="form-error label label-important">{{ field.errors }}</div>{% endif %}
-                    </div>
-                {% endif %}
-            {% endifequal %}
-        {% endfor %}
-        <div class="form-action-row">
-            <input type="submit" name="submit" class="submit-post" value="{% trans "Send" %}" />
-        </div>
-    </form>
-</div>
+<section id="schedules">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12">
+					<span class="top-tag-row">
+						<ol class="breadcrumb" style="margin-bottom: 5px;">
+						  <li><a href="https://about.azpm.org/">About</a></li>
+						  <li class="active">Contact</li>
+						</ol>
+					</span>
+					<h1>Get in Touch with Us</h1>
+				</div>
+			</div>			
+			<div class="row">
+				<div class="col-sm-8">
+					Have a question or comment for AZPM? We greatly value your feedback and there are many ways to contact us:
+					<h4 class="margintop">Phone</h4>
+					You can call the front desk during regular business hours at <strong>520-621-5828</strong>.
+					<h4 class="margintop">Social Media</h4>
+					<a href="http://m.me/azpublicmedia" target="_blank" class="btn btn-info btn-blue-lrg" style="margin-bottom:15px;">Message us on Facebook</a>
+					<a href="https://twitter.com/azpm" target="_blank" class="btn btn-info btn-blue-lrg" style="margin-bottom:15px;">Message us on Twitter</a>
+					<h4 class="margintop">Email</h4>
+					Fill out the short form below to contact us via email. We will get back to you as soon as possible.
+					<form action="." method="post">{% csrf_token %}
+					<span style="overflow:hidden;height:80px;display:block;"></span>
+					<h2>Contact Form</h2>
+					<div class="row">
+						<div class="col-sm-12">
+							<span class="simplered"><em>* denotes a required field</em></span>
+						</div>
+					</div>
+					{% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
+						{% for field in form %}
+							{% ifequal field.name "honeypot" %}
+								<div style="display: none;">{{ field }}</div>
+							{% else %}
+						{% if field.is_hidden %}{{ field }}{% else %}
+					<div class="row margintop">
+						<div class="col-sm-3 {% if field.errors %}field-errors{% endif %}">
+							{% if field.field.required %}{% if field.field.required %}*{% endif %}
+						</div>
+						<div class="col-sm-9">
+							{{ field }}
+							 {% if field.help_text %}<br/><em>{{ field.help_text }}</em>{% endif %}
+						</div>
+					</div>
+					{% endif %}
+					{% endifequal %}
+					{% endfor %}
+					<div class="row margintop">
+						<div class="col-sm-12">
+							<input type="submit" name="submit" class="btn btn-info btn-blue-lrg" value="{% trans "Send" %}" >
+							<span style="font-style:italic;display:block;margin-bottom:40px;overflow:hidden;"></span>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-4">
+					<div class="well">
+						<h4>General Contact Information</h4>
+						<strong>Front Desk:</strong> <br/>
+						Mon-Fri 8 a.m. – 5 p.m. <br/>
+						520-621-5828<br/><br/>
+						<strong>Member Services:</strong> <br/>
+						Mon–Fri 8 a.m.– 5 p.m. <br/>
+						520-621-1480
+						<span style="font-style:italic;display:block;margin-top:40px;">
+							For more numbers and hours, please visit our <a href="https://about.azpm.org/">about page</a>.
+						</span>
+					</div>
+				</div>
+			</div>			
+		</div>
+</section>
 {% endblock %}
