@@ -1,4 +1,4 @@
-from {{ name }}
+From {{ name }}
 
 {{ subject }},
 {{ message }}
