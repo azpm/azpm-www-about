@@ -32,13 +32,13 @@
 							{% else %}
 						{% if field.is_hidden %}{{ field }}{% else %}
 					<div class="row margintop">
-						<div class="col-sm-3 {% if field.errors %}field-errors{% endif %}">
+						<div class="col-sm-3 contactrow {% if field.errors %}field-errors{% endif %}">
 							{{  field.label_tag }}{% if field.field.required %}*{% endif %}
 						</div>
 						<div class="col-sm-9">
 							{{ field }}
-							 {% if field.help_text %}<br/><em>{{ field.help_text }}</em>{% endif %}
-							 {% if field.errors %}<div class="form-error label label-important">{{ field.errors }}</div>{% endif %}
+							 {% if field.help_text %}<span class="contactcaption">{{ field.help_text }}</span>{% endif %}
+							 {% if field.errors %}<span class="contactcaption" style="color:red !important;">{{ field.errors }}</span>{% endif %}
 						</div>
 					</div>
 					{% endif %}
