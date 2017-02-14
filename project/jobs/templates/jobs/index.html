@@ -19,18 +19,19 @@
 		</div>
 		<div class="row margintop">
 			<div class="col-sm-8">
-				  {% if perms.jobs.change_joblisting %}<a href="{% url admin:jobs_joblisting_changelist %}" title="Edit This" class="admin-edit-link" style="color:white; text-decoration:none" target="_blank">✎</a>{% endif %}
+				 {% if perms.jobs.change_joblisting %}<a href="{% url admin:jobs_joblisting_changelist %}" title="Edit This" class="admin-edit-link" style="text-decoration:none" target="_blank">✎</a>{% endif %}
+				 <em>Click on a job title for more information, or to apply.</em>
 				 {% for job in jobs %}
 				<div class="pressroom-item">
 					<h3><a href="{{ job.link }}" target="_blank">{{ job.title }}</a></h3>
 					<p>
 					{{ job.description|markdown }}
 					</p>
-					<ul class="job-date">
-						<li>Opens: {{ job.start }}</li>
-						<li>Ends: {{ job.end|default:"Open Until Filled" }}</li>
-						<li>Review Begins: {{ job.review|default:"TBD" }}</li>
-					</ul>
+					<div class="job-date">
+						<strong>Opens:</strong> {{ job.start }}<br/>
+						<strong>Ends:</strong> {{ job.end|default:"Open Until Filled" }}<br/>
+						<strong>Review Begins:</strong> {{ job.review|default:"TBD" }}</li>
+					</div>
 				</div>
 				{% empty %}
 				Unfortunately, there are no positions available right now.  Check back soon
