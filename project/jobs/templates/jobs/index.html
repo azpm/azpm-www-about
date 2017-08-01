@@ -27,6 +27,9 @@
 					<p>
 					{{ job.description|markdown }}
 					</p>
+					<span style="display:block;margin:35px 0;">
+						<a href="{{ job.link }}" type="button" class="btn btn-primary"  target="_blank">Apply Online</a>
+					</span>
 					<div class="job-date">
 						<strong>Opens:</strong> {{ job.start }}<br/>
 						<strong>Ends:</strong> {{ job.end|default:"Open Until Filled" }}<br/>
@@ -34,8 +37,8 @@
 					</div>
 				</div>
 				{% empty %}
-				Unfortunately, there are no positions available right now.  Check back soon
-				for exciting employment opportunities.
+				<br/><br/>
+				Unfortunately, there are no positions available right now.  Check back soon for exciting employment opportunities.
 				{% endfor %}
 			</div>
 			<div class="col-sm-4">
