@@ -27,9 +27,9 @@
 					<p>
 					{{ job.description|markdown }}
 					</p>
-					<span style="display:block;margin:35px 0;">
+					<div style="display:block;margin:35px 0;">
 						<a href="{{ job.link }}" type="button" class="btn btn-primary"  target="_blank">Apply Online</a>
-					</span>
+					</div>
 					<div class="job-date">
 						<strong>Opens:</strong> {{ job.start }}<br/>
 						<strong>Ends:</strong> {{ job.end|default:"Open Until Filled" }}<br/>
