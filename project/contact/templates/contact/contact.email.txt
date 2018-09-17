@@ -5,7 +5,7 @@ From {{ name }}
 
 Phone: {{ phone }}
 Address: {{ address }}
-Email: {{ email }}
+Email: {{ cemail }}
 
 Guru Meditation: {{ useragent }}
 {{ userip }}
