@@ -49,7 +49,7 @@ class Index(ContactPage, FormView):
         message_context = {
             'name': cleaned['name'],
             'subject': cleaned['subject'],
-            'message': cleaned['message'],
+            'message': cleaned['email'],
             'phone': cleaned['phone'],
             'address': cleaned['address'],
             'useragent': self.request.META.get('HTTP_USER_AGENT', ''),
