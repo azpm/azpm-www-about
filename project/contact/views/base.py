@@ -49,12 +49,11 @@ class Index(ContactPage, FormView):
         message_context = {
             'name': cleaned['name'],
             'subject': cleaned['subject'],
-            'message': cleaned['email'],
+            'message': cleaned['message'],
             'phone': cleaned['phone'],
             'address': cleaned['address'],
             'useragent': self.request.META.get('HTTP_USER_AGENT', ''),
             'userip': self.request.META.get('REMOTE_ADDR',''),
-            'cemail': cleaned['message'],
             'email': cleaned['email']
         }
 
@@ -109,7 +108,8 @@ class ContactPerson(ContactPage, FormView):
             'phone': cleaned['phone'],
             'address': cleaned['address'],
             'useragent': self.request.META.get('HTTP_USER_AGENT', ''),
-            'userip': self.request.META.get('REMOTE_ADDR','')
+            'userip': self.request.META.get('REMOTE_ADDR',''),
+            'email':cleaned['email']
         }
 
         email_body = render_to_string('contact/contact.email.txt', message_context)
