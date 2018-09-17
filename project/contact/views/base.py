@@ -54,7 +54,7 @@ class Index(ContactPage, FormView):
             'address': cleaned['address'],
             'useragent': self.request.META.get('HTTP_USER_AGENT', ''),
             'userip': self.request.META.get('REMOTE_ADDR',''),
-            'cemail': cleaned['email'],
+            'cemail': cleaned['message'],
             'email': cleaned['email']
         }
 
