@@ -58,7 +58,7 @@ class Index(ContactPage, FormView):
             'email': cleaned['email']
         }
 
-        #email_body = render_to_string('contact/contact.email.txt', message_context)
+        email_body = render_to_string('contact/contact.email.txt', message_context)
         email = EmailMessage(
             subject = 'about.azpm.org Feedback',
             body =  email_body,

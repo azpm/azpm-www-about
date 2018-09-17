@@ -3,6 +3,8 @@ From {{ name }}
 {{ subject }},
 {{ message }}
 
+---
+
 Phone: {{ phone }}
 Address: {{ address }}
 Email: {{ cemail }}
