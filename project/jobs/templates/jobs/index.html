@@ -23,7 +23,7 @@
 				 {% for job in jobs %}
 				 <span style="display:block;margin-bottom:20px;color:#808080;font-size:16px;" class="altfont">
 				 <a href="{{ job.link }}" style="font-size:24px;font-weight:700;" target="_blank">{{ job.title }}</a><br/>
-				 <strong>Department:</strong> {{ job.description|markdown }}<br/>
+				 <strong>Department:</strong> {{ job.description }}<br/>
 				 <strong>Posting Date:</strong> {{ job.start }}</span>
 				{% empty %}
 				<span style="display:block;margin-bottom:20px;color:#808080;font-size:16px;" class="altfont">
