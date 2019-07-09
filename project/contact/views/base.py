@@ -108,7 +108,8 @@ class ContactPerson(ContactPage, FormView):
             'phone': cleaned['phone'],
             'address': cleaned['address'],
             'useragent': self.request.META.get('HTTP_USER_AGENT', ''),
-            'userip': self.request.META.get('REMOTE_ADDR','')
+            'userip': self.request.META.get('REMOTE_ADDR',''),
+            'email':cleaned['email']
         }
 
         email_body = render_to_string('contact/contact.email.txt', message_context)
