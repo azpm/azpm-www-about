@@ -3,8 +3,8 @@
 {% load markup %}
 
 {% block zone_one %}
-<div style="margin:0 0 -34px 0!important;padding:0 !important;color:#fff;overflow: hidden;"><script src="https://unpkg.com/scrollreveal"></script><a name="top"></a>
-	<div class="container-fluid">
+<div style="padding:0 !important;color:#fff;overflow: hidden;"><script src="https://unpkg.com/scrollreveal"></script><a name="top"></a>
+	<div class="container-fluid" style="margin-bottom:-36px !important;">
 		<div class="row" style="box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.6);background:url(https://media.azpm.org/master/image/2022/2/22/hero/tucson.jpg) center center no-repeat;overflow:hidden;background-size:cover;position:relative;">
 			<div class="col-lg-5 topmatch-l" style="background:rgba(38,56,196,.9);overflow:hidden;">
 				<span class="careerbox" data-aos="zoom-in-up" data-aos-delay="500">
@@ -68,7 +68,7 @@
 							{% for job in jobs %}
 							<span>
 								<a href="{{ job.link }}" target="_blank" class="jobtitle">{{ job.title }}</a>
-								<strong>Posting Date:</strong>{{ job.start }}<br/>
+								<strong>Posting Date:</strong> {{ job.start }}<br/>
 								<div class="applylink">
 									<a href="{{ job.link }}" target="_blank" class="apply">Apply Online</a>
 								</div>
