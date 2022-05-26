@@ -3,53 +3,93 @@
 {% load markup %}
 
 {% block zone_one %}
-
-<section id="schedules">
-	<div class="container">
-		<div class="row">
-			<div class="col-sm-12">
-				<span class="top-tag-row">
-					<ol class="breadcrumb" style="margin-bottom: 5px;">
-						 <li><a href="https://about.azpm.org/">About</a></li>
-						 <li class="active">Jobs</li>
-					</ol>
+<div style="margin:0 0 -34px 0!important;padding:0 !important;color:#fff;overflow: hidden;"><script src="https://unpkg.com/scrollreveal"></script><a name="top"></a>
+	<div class="container-fluid">
+		<div class="row" style="box-shadow: 0px 0px 12px 2px rgba(0,0,0,0.6);background:url(https://media.azpm.org/master/image/2022/2/22/hero/tucson.jpg) center center no-repeat;overflow:hidden;background-size:cover;position:relative;">
+			<div class="col-lg-5 topmatch-l" style="background:rgba(38,56,196,.9);overflow:hidden;">
+				<span class="careerbox" data-aos="zoom-in-up" data-aos-delay="500">
+					<div class="careerlogo">
+						<img src="https://media.azpm.org/master/image/2022/5/23/element/azpm-newcharms-w-passport_900.png" alt="Arizona Public Media" class="img-responsive">
+					</div>	
+					<h1 class="careerh1">Careers with Arizona Public Media</h1>
+					<span class="buttoncareer">
+						<aside>Explore your talent and enjoy world-class benefits in beautiful Tucson, Arizona.</aside>
+						<a href="#benefits">Why work at AZPM?</a>
+						<a href="#openpositions">Open Positions</a>
+					</span>
 				</span>
-				<h1>Employment Opportunities</h1>
+			</div>
+			<div class="col-lg-7 topmatch-r">
+				<div style="position:absolute;top:20px;right:20px"><img src="https://media.azpm.org/master/image/2022/5/23/element/careers4.png" alt="Careers with Arizona Public Media" class="img-responsive"></div>
+				<div class="mccaption">
+					AZPM envisions a community in which ideas abound, knowledge is sought, learning never ends, and where innovative, adaptive audiences help solve community challenges to enrich life and expand human potential.
+				</div>
 			</div>
 		</div>
-		<div class="row margintop">
-			<div class="col-sm-8">
-				 {% if perms.jobs.change_joblisting %}<a href="{% url admin:jobs_joblisting_changelist %}" title="Edit This" class="admin-edit-link" style="text-decoration:none" target="_blank">✎</a>{% endif %}
-				 {% for job in jobs %}
-				 <span style="display:block;margin-bottom:20px;color:#808080;font-size:16px;" class="altfont">
-				 <a href="{{ job.link }}" style="font-size:24px;font-weight:700;" target="_blank">{{ job.title }}</a><br/>
-				 <strong>Department:</strong> {{ job.description }}<br/>
-				 <strong>Posting Date:</strong> {{ job.start }}</span>
-				{% empty %}
-				<span style="display:block;margin-bottom:20px;color:#808080;font-size:16px;" class="altfont">
-				There are no positions currently available.
-				</span>
-				{% endfor %}
+		<div class="row" style="box-shadow:0px 0px 12px 2px rgba(0,0,0,0.6);background:#5680ff;"><a name="benefits"></a>
+			<div class="col-lg-12" style="background:#5680ff;padding:100px 0px 130px 0px;">
+				<div class="benefits">
+					<h2>Why Work at AZPM</h2>
+					<span>
+						We offer best-in-class benefits including over four weeks of paid vacation, retirement savings plans, health, dental, and vision care, childcare reimbursement, and qualified tuition reduction for you and your family.
+						<div class="blink">
+							<a href="https://talent.arizona.edu/compensation-and-benefits" target="_blank">More about our benefits</a>
+							<a href="https://talent.arizona.edu/explore-arizona" target="_blank">About Tucson, Arizona</a>
+						</div>
+					</span>
+					<div class="row text-center">
+						<div class="col-md-4">
+							<img src="https://media.azpm.org/master/image/2022/5/23/element/vacation.png" class="img-responsive" alt="4+ weeks of paid vacation">
+						</div>
+						<div class="col-md-4">
+							<img src="https://media.azpm.org/master/image/2022/5/23/element/health.png" class="img-responsive" alt="88% of health benefits paid">
+						</div>
+						<div class="col-md-4">
+							<img src="https://media.azpm.org/master/image/2022/5/23/element/leave.png" class="img-responsive">
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-sm-4">
-				<div class="well altfont" style="font-size:16px;line-height:22px !important;">
-					<h4 class="altfont">Working at Arizona Public Media</h4>
-						Arizona Public Media is committed to providing excellence in Public Broadcasting to the diverse communities of southern Arizona. Our employees are the single most important resource, making all we achieve possible.<br><br>
-								Arizona Public Media values creativity, diversity and sincerity in public service. Arizona Public Media is an AA/ADA/EEO employer. We encourage all those qualified to apply.<br><br>
-								In accordance with FCC guidelines (adopted Nov. 7, 2002), Arizona Public Media is required to provide notification of full-time job vacancies to organizations involved in assisting job seekers upon request by such organization.
-								As a public service, Arizona Public Media Human Resources office will provide notification of jobs to interested organizations. To request notification, write:<br><br>
-							<span style="display:block;margin-bottom:30px;">
-								<strong>Arizona Public Media</strong><br>
-								PO Box 210067<br>
-								Tucson, AZ 85721-0067
+		</div>
+		<div class="row" style="box-shadow:0px 0px 12px 2px rgba(0,0,0,0.6);background:rgba(38,56,196,1);"><a name="openpositions"></a>
+			<div class="col-lg-12" style="background:rgba(38,56,196,1);padding:100px 0px 130px 0px;">
+				<div class="benefits">
+					<h2>Open Positions</h2>
+					<span>
+						Arizona Public Media values creativity, diversity and sincerity in public service. Arizona Public Media is an AA/ADA/EEO employer. We encourage all those qualified to apply. {% if perms.jobs.change_joblisting %}<a href="{% url admin:jobs_joblisting_changelist %}" title="Edit This" class="admin-edit-link" style="text-decoration:none" target="_blank">✎</a>{% endif %}
+						<div class="blink">
+							<a href="http://equity.arizona.edu/" target="_blank">Our Equity Commitment</a><a href="https://about.azpm.org/equalopportunity/" target="_blank">AZPM's Equal Opportunity Report</a>
+						</div>
+					</span>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="joblistings">
+							{% for job in jobs %}
+							<span>
+								<a href="{{ job.link }}" target="_blank" class="jobtitle">{{ job.title }}</a>
+								<strong>Posting Date:</strong>{{ job.start }}<br/>
+								<div class="applylink">
+									<a href="{{ job.link }}" target="_blank" class="apply">Apply Online</a>
+								</div>
 							</span>
-					<h4 class="altfont margintop">Equal Opportunity and Affirmative Action Links</h4>
-					<a href="http://equity.arizona.edu/" target="_blank" style="display:block;margin-bottom:10px;">The University of Arizona's Equal Opportunity and Affirmative Action Office Web site</a>
-					<a href="http://www.eeoc.gov/" target="_blank" style="display:block;margin-bottom:10px;">U.S. Equal Employment Opportunity Commission (EEOC)</a>
-					<a href="https://about.azpm.org/equalopportunity/" target="_blank" style="display:block;margin-bottom:10px;">AZPM Equal Opportunity Report</a>
+							{% empty %}
+							<span>
+								There are no positions currently available.
+							</span>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="backtop">
+							<a href="#top">Back to Top</a>
+						</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</section>
+</div>
 {% endblock %}
